@@ -1,0 +1,21 @@
+.jumbotron {
+    border-radius: 0rem !important;
+    background-color: #00802b !important;
+    color: white !important;
+    margin-bottom: 0rem;
+}
+
+hr{
+  height: 10px;
+  background-color: #343a40 ;
+  margin: 0 2rem 0 2rem;
+  border: none;
+}
+
+.fonctionnalite {
+       padding: 3rem 2rem;
+}
+
+.titrefonctionnalite{
+    font-size: 2rem;
+}
