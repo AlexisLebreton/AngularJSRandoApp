@@ -18,16 +18,8 @@ randoApp.config(function($routeProvider) {
         templateUrl : "president.html"
     });
 });
-     
-randoApp.controller('navCtrl', ['$scope',
-    
-    function HeaderController($scope, $location) 
-        { 
-            $scope.isActive = function (viewLocation) { 
-                return viewLocation === $location.path();
-            };
-        }
-]);
+
+
 
 
 

@@ -2,3 +2,113 @@
     <h1 class="display-4">Espace membre</h1>
     <p class="lead">Ici vous pouvez maj vos infos, payer votre cotisation, voter pour une date de rando, vous inscrire à une rando existante</p>
 </div>
+
+<div class="fonctionalites">
+
+    <div class="fonctionnalite" id="majInfos">
+
+        <h1 class="display-4 titrefonctionnalite">Maj infos</h1>
+        
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="prenom" class="form-control" id="nom">
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prenom</label>
+            <input type="prenom" class="form-control" id="prenom">
+        </div>
+        <div class="form-group">
+            <label for="prenom">Adresse</label>
+            <input type="prenom" class="form-control" id="prenom">
+        </div>
+        
+        <button class="btn btn-dark">Enregistrer</button>
+
+    </div>
+    
+    <hr></hr>
+    
+    <div class="fonctionnalite" id="payerCotisation">
+
+        <h1 class="display-4 titrefonctionnalite">Payer une cotisation</h1>
+        
+        <div class="form-group">
+            <label for="iban">Iban</label>
+            <input type="iban" class="form-control" id="iban">
+        </div>
+        <div class="form-group">
+            <label for="cotisation">Cotisation</label>
+            <input type="cotisation" class="form-control" id="cotisation">
+        </div>
+        
+        <button class="btn btn-dark">Payer</button>
+
+    </div>
+    
+    <hr></hr>
+    
+    <div class="fonctionnalite" id="voterDate">
+
+        <h1 class="display-4 titrefonctionnalite">Voter pour une date de rando</h1>
+        
+        <table ng-table="tableVoteDate" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">titre</th>
+                    <th scope="col">lieu</th>
+                    <th scope="col">distance</th>
+                    <th scope="col">date 1</th>
+                    <th scope="col">date 2</th>
+                    <th scope="col">date 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="randoVote in $listRandoVote">
+                    <td>{{randoVote.idR}}</td>
+                    <td>{{randoVote.titreR}}</td>
+                    <td>{{randoVote.lieuR}}</td>
+                    <td>{{randoVote.distanceR}}</td>
+                    <td><button ng-click="voterDateRando(randoVote.idR,randoVote.date1)" type="button" class="btn btn-dark">{{randoVote.date1}}</button></td>
+                    <td><button ng-click="voterDateRando(randoVote.idR,randoVote.date2)" type="button" class="btn btn-dark">{{randoVote.date2}}</button></td>
+                    <td><button ng-click="voterDateRando(randoVote.idR,randoVote.date3)" type="button" class="btn btn-dark">{{randoVote.date3}}</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    
+    <hr></hr>
+    
+    <div class="fonctionnalite" id="inscrireRando">
+
+        <h1 class="display-4 titrefonctionnalite">S'inscrire à une rando</h1>
+        
+        <table ng-table="tableVoteDate" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">titre</th>
+                    <th scope="col">lieu</th>
+                    <th scope="col">distance</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="randoDispo in $listRandoDispo">
+                    <td>{{randoDispo.idR}}</td>
+                    <td>{{randoDispo.titreR}}</td>
+                    <td>{{randoDispo.lieuR}}</td>
+                    <td>{{randoDispo.distanceR}}</td>
+                    <td><button ng-click="inscrireRando(randoDispo.idR)" type="button" class="btn btn-dark">S'inscrire</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    
+    <hr></hr>
+
+</div>
+
+

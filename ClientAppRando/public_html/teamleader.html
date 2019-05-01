@@ -2,3 +2,116 @@
     <h1 class="display-4">Espace team leader</h1>
     <p class="lead">Ici vous pouvez proposer une randonnée avec 3 dates, voter et ainsi cloturer les votes pour une de vos randonnés, cloturer les inscriptions à une de vos randonnées</p>
 </div>
+
+<div class="fonctionalites">
+
+    <div class="fonctionnalite" id="nouvelleRando">
+
+        <h1 class="display-4 titrefonctionnalite">Nouvelle randonnée</h1>
+        
+        <div class="form-group">
+            <label for="titre">Titre</label>
+            <input type="text" class="form-control" id="titre">
+        </div>
+        <div class="form-group">
+            <label for="niveau">Niveau</label>
+            <input type="text" class="form-control" id="niveau">
+        </div>
+        <div class="form-group">
+            <label for="lieu">Lieu</label>
+            <input type="text" class="form-control" id="lieu">
+        </div>
+        <div class="form-group">
+            <label for="distance">Distance</label>
+            <input type="text" class="form-control" id="distance">
+        </div>
+        <div class="form-group">
+            <label for="coutFixe">Cout fixe</label>
+            <input type="text" class="form-control" id="coutFixe">
+        </div>
+        <div class="form-group">
+            <label for="coutVar">Cout variable</label>
+            <input type="text" class="form-control" id="coutVar">
+        </div>
+        <div class="form-group">
+            <label for="date1">Date 1</label>
+            <input type="date" class="form-control" id="date1">
+        </div>
+        <div class="form-group">
+            <label for="date2">Date 2</label>
+            <input type="date" class="form-control" id="date2">
+        </div>
+        <div class="form-group">
+            <label for="date3">Date 3</label>
+            <input type="date" class="form-control" id="date3">
+        </div>
+        
+        <button class="btn btn-dark">Créer</button>
+
+    </div>
+        
+    <hr></hr>
+    
+    <div class="fonctionnalite" id="voterDate">
+
+        <h1 class="display-4 titrefonctionnalite">Voter pour une date de rando et donc cloturer</h1>
+        
+        <table ng-table="tableVoteDate" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">titre</th>
+                    <th scope="col">lieu</th>
+                    <th scope="col">distance</th>
+                    <th scope="col">date 1</th>
+                    <th scope="col">date 2</th>
+                    <th scope="col">date 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="randoVoteTL in $listRandoVoteTL">
+                    <td>{{randoVoteTL.idR}}</td>
+                    <td>{{randoVoteTL.titreR}}</td>
+                    <td>{{randoVoteTL.lieuR}}</td>
+                    <td>{{randoVoteTL.distanceR}}</td>
+                    <td><button ng-click="voterDateRando(randoVoteTL.idR,randoVoteTL.date1)" type="button" class="btn btn-dark">{{randoVoteTL.date1}}</button></td>
+                    <td><button ng-click="voterDateRando(randoVoteTL.idR,randoVoteTL.date2)" type="button" class="btn btn-dark">{{randoVoteTL.date2}}</button></td>
+                    <td><button ng-click="voterDateRando(randoVoteTL.idR,randoVoteTL.date3)" type="button" class="btn btn-dark">{{randoVoteTL.date3}}</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+        
+    <hr></hr>
+    
+    <div class="fonctionnalite" id="voterDate">
+
+        <h1 class="display-4 titrefonctionnalite">Voter pour une date de rando et donc cloturer</h1>
+        
+        <table ng-table="tableVoteDate" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">titre</th>
+                    <th scope="col">lieu</th>
+                    <th scope="col">distance</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="randoFixeTL in $listRandoFixeTL">
+                    <td>{{randoFixeTL.idR}}</td>
+                    <td>{{randoFixeTL.titreR}}</td>
+                    <td>{{randoFixeTL.lieuR}}</td>
+                    <td>{{randoFixeTL.distanceR}}</td>
+                    <td><button ng-click="cloturerInscriptionRando(randoFixeTL.idR)" type="button" class="btn btn-dark">Cloturer</button></td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    
+    <hr></hr>
+    
+</div>
