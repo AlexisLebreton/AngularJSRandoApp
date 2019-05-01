@@ -1,6 +1,6 @@
-var app = angular.module("randoApp", ["ngRoute"]);
+var randoApp = angular.module("randoApp", ["ngRoute"]);
 
-app.config(function($routeProvider) {
+randoApp.config(function($routeProvider) {
     $routeProvider
     .when("/", {
         templateUrl : "main.html"
@@ -18,11 +18,16 @@ app.config(function($routeProvider) {
         templateUrl : "president.html"
     });
 });
+     
+randoApp.controller('navCtrl', ['$scope',
+    
+    function HeaderController($scope, $location) 
+        { 
+            $scope.isActive = function (viewLocation) { 
+                return viewLocation === $location.path();
+            };
+        }
+]);
 
-module.controller("navController", function navController($scope) {
-    $scope.alerttest = function () {
-        alert("iyoiy");
-    };
-});
 
 
