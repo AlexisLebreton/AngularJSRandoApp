@@ -3,7 +3,7 @@
     <p class="lead">Ici vous pouvez maj vos infos, payer votre cotisation, voter pour une date de rando, vous inscrire à une rando existante</p>
 </div>
 
-<div class="fonctionalites">
+<div class="fonctionalites"  ng-controller="secretaireCtrl">
 
     <div class="fonctionnalite" id="majInfos">
 
@@ -28,7 +28,7 @@
     
     <hr></hr>
     
-    <div class="fonctionnalite" id="payerCotisation">
+    <div class="fonctionnalite" id="payerCotisation" >
 
         <h1 class="display-4 titrefonctionnalite">Payer une cotisation</h1>
         
@@ -41,7 +41,7 @@
             <input type="cotisation" class="form-control" id="cotisation">
         </div>
         
-        <button class="btn btn-dark">Payer</button>
+        <button  ng-click="testtest()" class="btn btn-dark">Payer</button>
 
     </div>
     
