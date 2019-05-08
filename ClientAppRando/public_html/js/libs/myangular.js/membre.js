@@ -7,18 +7,13 @@
 var randoApp = angular.module('randoApp');
         
 randoApp.controller('membreCtrl', ['$scope','$http',
-    function ($scope,$http) {
-            $scope.testtest = function () {
-                alert("allo");
-            };
-            
+    function ($http,$scope) {
+                       
         $http.get('/api/randoMembre/').then(function(response){
          //handle your response here
          alert(response);
          console.log(response);
     });
-
-   
     }
 ]);
 
