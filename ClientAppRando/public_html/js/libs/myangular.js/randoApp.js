@@ -16,6 +16,9 @@ randoApp.config(function($routeProvider) {
     })
     .when("/president", {
         templateUrl : "president.html"
+    })
+    .when("/login", {
+        templateUrl : "login.html"
     });
 });
 
