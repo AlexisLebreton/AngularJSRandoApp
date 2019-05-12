@@ -3,15 +3,15 @@
     <p class="lead">Ici vous pouvez consulter le reporting.</p>
 </div>
 
-<div class="fonctionalites">
+<div class="fonctionalites"  ng-controller="presidentCtrl">
 
     <div class="fonctionnalite" id="majInfos">
 
         <h1 class="display-4 titrefonctionnalite">Reporting générale</h1>
 
         <ul class="list-group">
-            <li class="list-group-item">Nombre de membres <span class="badge">12</span></li>
-            <li class="list-group-item">Nombre de Teams Leaders <span class="badge">5</span></li> 
+            <li class="list-group-item">Nombre de membres <span class="badge">{{nbMembre}}</span></li>
+            <li class="list-group-item">Nombre de Teams Leaders <span class="badge">{{nbTeamL}}</span></li> 
             <li class="list-group-item">Nombre de randonnées positionnées <span class="badge">3</span></li> 
             <li class="list-group-item">Total des cotisations prévues <span class="badge">555</span></li> 
             <li class="list-group-item">Total des cotisations réglées <span class="badge">323</span></li> 
@@ -22,6 +22,6 @@
 
     </div>
 
-    <hr></hr>
+    
 
 </div>
