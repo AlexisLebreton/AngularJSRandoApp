@@ -1,16 +1,22 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 var randoApp = angular.module('randoApp');
 
 randoApp.controller('presidentCtrl', function ($scope, $http) {
-
-
+    
     $http({
         method: 'GET',
-        url: 'http://localhost:8080/api/randoMembre'})
+        url: 'http://localhost:8080/api/randoMembre/reporting'})
+            .then(function (response) {
+                $scope.listInfosMembre = response.data;
+                $scope.nbMembre = $scope.listInfosMembre.nbMembre;
+                $scope.nbTL = $scope.listInfosMembre.nbTL;
+                $scope.totalCotisationRegle = $scope.listInfosMembre.totalCotisationRegle;
+                console.log(response.data);
+            });
+
+    /*
+    $http({
+        method: 'GET',
+        url: 'http://localhost:8080/api/randoMembre/'})
             .then(function (response) {
                 $scope.listMembre = response.data;
                 console.log(response.data);
@@ -28,6 +34,7 @@ randoApp.controller('presidentCtrl', function ($scope, $http) {
                     });
                 });
             });
+            */
 
 });
 
