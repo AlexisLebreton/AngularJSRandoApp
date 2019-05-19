@@ -64,11 +64,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="randoVote in $listRandoVote">
-                    <td>{{randoVote.idR}}</td>
-                    <td>{{randoVote.titreR}}</td>
-                    <td>{{randoVote.lieuR}}</td>
-                    <td>{{randoVote.distanceR}}</td>
+                <tr ng-repeat="randoVote in listRandoVote">
+                    <td>{{randoVote.id}}</td>
+                    <td>{{randoVote.titre}}</td>
+                    <td>{{randoVote.lieu}}</td>
+                    <td>{{randoVote.distance}}</td>
                     <td><button ng-click="voterDateRando(randoVote.idR,randoVote.date1)" type="button" class="btn btn-dark">{{randoVote.date1}}</button></td>
                     <td><button ng-click="voterDateRando(randoVote.idR,randoVote.date2)" type="button" class="btn btn-dark">{{randoVote.date2}}</button></td>
                     <td><button ng-click="voterDateRando(randoVote.idR,randoVote.date3)" type="button" class="btn btn-dark">{{randoVote.date3}}</button></td>
@@ -95,11 +95,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="randoDispo in $listRandoDispo">
-                    <td>{{randoDispo.idR}}</td>
-                    <td>{{randoDispo.titreR}}</td>
-                    <td>{{randoDispo.lieuR}}</td>
-                    <td>{{randoDispo.distanceR}}</td>
+                <tr ng-repeat="randoDispo in listRandoDispo">
+                    <td>{{randoDispo.id}}</td>
+                    <td>{{randoDispo.titre}}</td>
+                    <td>{{randoDispo.lieu}}</td>
+                    <td>{{randoDispo.distance}}</td>
                     <td><button ng-click="inscrireRando(randoDispo.idR)" type="button" class="btn btn-dark">S'inscrire</button></td>
                 </tr>
             </tbody>
