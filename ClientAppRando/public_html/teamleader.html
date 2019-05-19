@@ -3,7 +3,7 @@
     <p class="lead">Ici vous pouvez proposer une randonnée avec 3 dates, voter et ainsi cloturer les votes pour une de vos randonnés, cloturer les inscriptions à une de vos randonnées</p>
 </div>
 
-<div class="fonctionalites">
+<div class="fonctionalites" ng-controller="teamleaderCtrl">
 
     <div class="fonctionnalite" id="nouvelleRando">
 
@@ -46,7 +46,7 @@
             <input type="date" class="form-control" id="date3">
         </div>
         
-        <button class="btn btn-dark">Créer</button>
+        <button class="btn btn-dark" ng-click="creerRando()">Créer</button>
 
     </div>
         
