@@ -6,14 +6,25 @@
 
 var randoApp = angular.module('randoApp');
         
-randoApp.controller('membreCtrl', ['$scope','$http',
-    function ($http,$scope) {
-                       
-        $http.get('/api/randoMembre/').then(function(response){
-         //handle your response here
-         alert(response);
-         console.log(response);
+randoApp.controller('membreCtrl', function ($scope, $http) {
+    
+    
+    $http({
+        method: 'GET',
+        url: 'http://localhost:8181/api/randonnee/randoToVotes'})
+            .then(function (response) {
+                $scope.listRandoVote = response.data;
+                console.log(response.data);
+            });
+            
+    $http({
+        method: 'GET',
+        url: 'http://localhost:8181/api/randonnee/randoInscriNonCloture'})
+            .then(function (response) {
+                $scope.listRandoInscriOuverte = response.data;
+                console.log(response.data);
     });
-    }
-]);
+
+
+});
 
