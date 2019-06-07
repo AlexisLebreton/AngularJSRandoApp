@@ -3,7 +3,7 @@
     <p class="lead">Ici vous pouvez vous connecter ou creer un compte membre</p>
 </div>
 
-<div class="fonctionalites"  ng-controller="connexionCtrl">
+<div class="fonctionalites"  ng-controller="loginCtrl">
 
     <div class="fonctionnalite" id="connexion">
 
@@ -11,14 +11,14 @@
         
         <div class="form-group">
             <label for="loginM">Login</label>
-            <input type="text" class="form-control" id="loginM">
+            <input type="text" class="form-control" ng-model="connecting.loginM" id="loginM">
         </div>
         <div class="form-group">
             <label for="mdpM">Mot de passe</label>
-            <input type="password" class="form-control" id="mdpM">
+            <input type="password" class="form-control" ng-model="connecting.mdpM" id="mdpM">
         </div>
         
-        <button class="btn btn-dark">Connexion</button>
+        <button class="btn btn-dark" ng-click="connexion(connecting)">Connexion</button>
 
     </div>
     

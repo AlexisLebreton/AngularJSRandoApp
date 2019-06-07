@@ -19,3 +19,7 @@ hr{
 .titrefonctionnalite{
     font-size: 2rem;
 }
+
+.disabled {
+  cursor: not-allowed;
+}
