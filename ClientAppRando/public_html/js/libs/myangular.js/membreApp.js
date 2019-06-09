@@ -6,47 +6,24 @@
 
 var randoApp = angular.module('randoApp');
 
-randoApp.controller('membreCtrl', function ($scope, $http) {
-
-    $scope.voterDateRando = function (randoId, dateChoisie) {
-        alert(randoId + dateChoisie);
-        var dataToSend = {
-            idMembre: '1',
-            dateChoisie: dateChoisie
-        };
-        
-   /*     $http.post('http://localhost:8181/api/randonnee/voterCreneau/' + randoId, JSON.stringify(data)).then(function (response) {
-
-if (response.data)
-
-$scope.msg = "Post Data Submitted Successfully!";
-
-}, function (response) {
-
-$scope.msg = "Service not Exists";
-
-$scope.statusval = response.status;
-
-$scope.statustext = response.statusText;
-
-$scope.headers = response.headers();
-
-};*/
+randoApp.controller('membreCtrl', function ($scope, $rootScope,$http) {
 
 
-
+   $scope.voterDateRando = function (randoId, date) {
+        alert(randoId + date);
         $http({
-            method: 'PATCH',
-            url: 'http://localhost:8181/api/randonnee/voterCreneau/' + randoId})
-                .then(function (response) {
-                    
-                    console.log(response.data);
-                });
+        method: 'PATCH',
+        url: 'http://localhost:8181/api/randonnee/voterCreneau/' + randoId,
+        params: {idMembre: $rootScope.idM, dateChoisie:date}})
+            .then(function (response) {
+                 alert("vote enregistré");
+            });
     };
+
 
     $http({
         method: 'GET',
-        url: 'http://localhost:8181/api/randonnee/randoToVotes'})
+        url: 'http://localhost:8181/api/randonnee/randoToVotes/'+$rootScope.idM})
             .then(function (response) {
                 $scope.listRandoVote = response.data;
                 console.log(response.data);
