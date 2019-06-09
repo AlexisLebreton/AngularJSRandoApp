@@ -10,12 +10,12 @@
         <h1 class="display-4 titrefonctionnalite">Connexion</h1>
         
         <div class="form-group">
-            <label for="loginM">Login</label>
-            <input type="text" class="form-control" ng-model="connecting.loginM" id="loginM">
+            <label for="coLoginM">Login</label>
+            <input type="text" class="form-control" ng-model="connecting.loginM" id="coLoginM">
         </div>
         <div class="form-group">
-            <label for="mdpM">Mot de passe</label>
-            <input type="password" class="form-control" ng-model="connecting.mdpM" id="mdpM">
+            <label for="coMdpM">Mot de passe</label>
+            <input type="password" class="form-control" ng-model="connecting.mdpM" id="coMdpM">
         </div>
         
         <button class="btn btn-dark" ng-click="connexion(connecting)">Connexion</button>
@@ -30,42 +30,42 @@
         
         <div class="form-group">
             <label for="nomM">Nom</label>
-            <input type="text" class="form-control" id="nomM">
+            <input type="text" class="form-control" ng-model="inscrit.nomM" id="nomM">
         </div>
         <div class="form-group">
             <label for="prenomM">Prenom</label>
-            <input type="text" class="form-control" id="prenomM">
+            <input type="text" class="form-control" ng-model="inscrit.prenomM" id="prenomM">
         </div>
         <div class="form-group">
             <label for="mailM">Mail</label>
-            <input type="mail" class="form-control" id="mailM">
+            <input type="mail" class="form-control" ng-model="inscrit.mailM" id="mailM">
         </div>
         <div class="form-group">
             <label for="loginM">Login</label>
-            <input type="text" class="form-control" id="loginMem">
+            <input type="text" class="form-control" ng-model="inscrit.loginM" id="loginM">
         </div>
         <div class="form-group">
             <label for="mdpM">Mot de passe</label>
-            <input type="password" class="form-control" id="mdpMem">
+            <input type="password" class="form-control" ng-model="inscrit.mdpM" id="mdpM">
         </div>
         <div class="form-group">
             <label for="adressM">Adresse</label>
-            <input type="text" class="form-control" id="adressM">
+            <input type="text" class="form-control" ng-model="inscrit.adressM" id="adressM">
         </div>
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="isTL">
-            <label class="form-check-label" for="isTL">Team leader</label>
+            <input type="checkbox" class="form-check-input" id="isTL" ng-model="inscrit.isTL" ng-true-value="true" ng-false-value="false">
+            <label class="form-check-label" for="isTL"  >Team leader</label>
         </div>
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="isPresident">
-            <label class="form-check-label" for="isPresident">Président</label>
+            <input type="checkbox" class="form-check-input" id="isPresident" ng-model="inscrit.isPresident" ng-true-value="true" ng-false-value="false">
+            <label class="form-check-label" for="isPresident"   >Président</label>
         </div>
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="isSecretaire">
-            <label class="form-check-label" for="isSecretaire">Secretaire</label>
+            <input type="checkbox" class="form-check-input" id="isSecretaire" ng-model="inscrit.isSecretaire" ng-true-value="true" ng-false-value="false">
+            <label class="form-check-label" for="isSecretaire"   >Secretaire</label>
         </div>
         
-        <button class="btn btn-dark">Inscription</button>
+        <button class="btn btn-dark" ng-click="inscription(inscrit)">Inscription</button>
 
     </div>
     

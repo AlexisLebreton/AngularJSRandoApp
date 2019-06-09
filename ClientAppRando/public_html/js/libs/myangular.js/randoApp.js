@@ -1,4 +1,4 @@
-var randoApp = angular.module("randoApp", ["ngRoute"]);
+var randoApp = angular.module("randoApp", ["ngRoute", "ngCookies"]);
 
 randoApp.config(function($routeProvider) {
     $routeProvider
@@ -22,11 +22,12 @@ randoApp.config(function($routeProvider) {
     });
 });
 
-randoApp.run( function($rootScope, $location) {
+randoApp.run( function($location, $rootScope ,$cookies) {
 
     // register listener to watch route changes
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-      if ( $rootScope.idM == null ) {
+      var coIdM = $cookies.get('coIdM');
+      if ( (coIdM === null )||( coIdM == '' ) ) {
         // no logged user, we should be going to #login
         if ( next.templateUrl != "login.html" ) {
           // not going to #login, we should redirect now
@@ -35,6 +36,18 @@ randoApp.run( function($rootScope, $location) {
       }         
     });
  })
+ 
+ randoApp.controller('indexCtrl', function ($scope, $location, $cookies) {
+                       
+    $scope.deco = function () {
+        var coIdM = $cookies.get('coIdM');
+        $cookies.put('coIdM', '');
+        $location.path( "/" );
+    };
+
+    
+
+});
 
 
 
