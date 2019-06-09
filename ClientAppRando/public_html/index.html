@@ -25,20 +25,20 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item" ng-show="homeShow">
                         <a class="nav-link" href="#!">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" ng-show="membreShow">
                         <a class="nav-link" href="#!membre">Membre</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" ng-show="tlShow">
                         <a class="nav-link" href="#!teamleader" >Team Leader</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#!secretaire" >Secretaire</a>
+                    <li class="nav-item" ng-show="secretaireShow">
+                        <a  class="nav-link" href="#!secretaire" >Secretaire</a>
                     </li>
-                    <li class="nav-item" >
-                        <a class="nav-link" href="#!president" >Président</a>
+                    <li class="nav-item" ng-show="presidentShow" >
+                        <a class="nav-link" href="#!president" disabled>Président</a>
                     </li>
                 </ul>
                 <form class="form">
