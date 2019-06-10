@@ -10,6 +10,43 @@ randoApp.controller('membreCtrl', function ($scope, $cookies, $http) {
 
     var idMember = $cookies.get('coIdM');
     
+    //maj infos
+    
+    $http({
+        method: 'GET',
+        url: 'http://localhost:8080/api/randoMembre/'+idMember})
+            .then(function (response) {
+                $scope.membreRes = response.data;
+                $scope.membreMaj = $scope.membreRes;
+            });
+            
+    $scope.majMembre = function (membreMaj) {
+        var putData = angular.toJson(membreMaj, true);
+        
+        var req = {
+            method: 'PUT',
+            url: 'http://localhost:8080/api/randoMembre',
+            data: putData
+           };
+        
+        $http(req).then(function(){ alert("ok"); }, function(){ alert("ko"); });
+        
+    };
+    
+    //payer une cotisation
+    
+    $scope.payerCotisation = function (paiement) {
+        $http({
+        method: 'PATCH',
+        url: 'http://localhost:8080/api/randoMembre/payerCotisation',
+        params: {idM: idMember, iban: paiement.iban, cotisation: paiement.cotisation}})
+            .then(function (response) {
+                alert("payement de cotisation réussi");
+            });
+    };
+    
+    //voter pour une date de rando
+    
     $scope.voterDateRando = function (randoId, date) {
         alert(randoId + date);
         $http({
