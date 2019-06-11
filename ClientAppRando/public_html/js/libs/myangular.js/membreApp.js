@@ -51,8 +51,7 @@ randoApp.controller('membreCtrl', function ($scope, $cookies, $http, $route) {
 
     //voter pour une date de rando
 
-    $scope.voterDateRando = function (randoId, date) {
-        alert(randoId + date);
+    $scope.voterDateRando = function (randoId, date) {        
         $http({
             method: 'PATCH',
             url: 'http://localhost:8181/api/randonnee/voterCreneau/' + randoId,
@@ -68,7 +67,7 @@ randoApp.controller('membreCtrl', function ($scope, $cookies, $http, $route) {
     $scope.inscrireRando = function (randoId) {
         $http({
             method: 'PATCH',
-            url: 'http://localhost:8181/api/randonnee/inscriptionRando//' + randoId,
+            url: 'http://localhost:8181/api/randonnee/inscriptionRando/' + randoId,
             params: {idMembre: idMember}})
                 .then(function (response) {
                     alert("inscription enregistrée");
@@ -85,7 +84,7 @@ randoApp.controller('membreCtrl', function ($scope, $cookies, $http, $route) {
 
     $http({
         method: 'GET',
-        url: 'http://localhost:8181/api/randonnee/randoInscriNonCloture'})
+        url: 'http://localhost:8181/api/randonnee/randoInscriNonCloture/' + idMember })
             .then(function (response) {
                 $scope.listRandoInscriOuverte = response.data;
             });
