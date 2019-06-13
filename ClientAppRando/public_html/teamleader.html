@@ -11,42 +11,42 @@
         
         <div class="form-group">
             <label for="titre">Titre</label>
-            <input type="text" class="form-control" id="titre">
+            <input type="text" class="form-control" id="titre" ng-model="newRando.titreR">
         </div>
         <div class="form-group">
             <label for="niveau">Niveau</label>
-            <input type="text" class="form-control" id="niveau">
+            <input type="text" class="form-control" id="niveau" ng-model="newRando.niveauCible">
         </div>
         <div class="form-group">
             <label for="lieu">Lieu</label>
-            <input type="text" class="form-control" id="lieu">
+            <input type="text" class="form-control" id="lieu" ng-model="newRando.lieuR"> 
         </div>
         <div class="form-group">
             <label for="distance">Distance</label>
-            <input type="text" class="form-control" id="distance">
+            <input type="text" class="form-control" id="distance" ng-model="newRando.distanceR"> 
         </div>
         <div class="form-group">
             <label for="coutFixe">Cout fixe</label>
-            <input type="text" class="form-control" id="coutFixe">
+            <input type="text" class="form-control" id="coutFixe" ng-model="newRando.coutFixeR"> 
         </div>
         <div class="form-group">
             <label for="coutVar">Cout variable</label>
-            <input type="text" class="form-control" id="coutVar">
+            <input type="text" class="form-control" id="coutVar" ng-model="newRando.coutVariableR"> 
         </div>
         <div class="form-group">
             <label for="date1">Date 1</label>
-            <input type="date" class="form-control" id="date1">
+            <input type="date" class="form-control" id="date1" ng-model="newRando.date1"> 
         </div>
         <div class="form-group">
             <label for="date2">Date 2</label>
-            <input type="date" class="form-control" id="date2">
+            <input type="date" class="form-control" id="date2" ng-model="newRando.date2"> 
         </div>
         <div class="form-group">
             <label for="date3">Date 3</label>
-            <input type="date" class="form-control" id="date3">
+            <input type="date" class="form-control" id="date3" ng-model="newRando.date3"> 
         </div>
         
-        <button class="btn btn-dark" ng-click="creerRando()">Créer</button>
+        <button class="btn btn-dark" ng-click="creerRando(newRando)">Créer</button>
 
     </div>
         

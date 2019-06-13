@@ -2,10 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/Maha%20Chaouch/Documents/M2/S10/Applications%20en%20mode%20service/Angular/AngularJSRandoApp/ClientAppRando/public_html/js/libs/myangular.js/membreApp.js</file>
             <file>file:/C:/Users/Maha%20Chaouch/Documents/M2/S10/Applications%20en%20mode%20service/Angular/AngularJSRandoApp/ClientAppRando/public_html/membre.html</file>
             <file>file:/C:/Users/Maha%20Chaouch/Documents/M2/S10/Applications%20en%20mode%20service/Angular/AngularJSRandoApp/ClientAppRando/public_html/js/libs/myangular.js/teamleaderApp.js</file>
         </group>
+=======
+        <group/>
+>>>>>>> 463aa4e22cb5b72e64eeeb434a8deafa3bfea723
     </open-files>
 </project-private>
