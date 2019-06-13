@@ -18,16 +18,13 @@ randoApp.controller('teamleaderCtrl', function ($scope, $http, $cookies) {
                 $scope.listRandoVoteTL = response.data;
             });
 
-    $scope.creerRando = function () {
-        alert("ok");
-        console.log($scope.titre);
-
-randoApp.controller('teamleaderCtrl', function ($scope,$http, $cookies) {
-    
-    var idMember = $cookies.get('coIdM');
-    
-    
-                       
+    $http({
+        method: 'GET',
+        url: 'http://localhost:8181/api/randonnee/randoInscisACloturer/' + idMember})
+            .then(function (response) {
+                $scope.listRandoFixeTL = response.data;
+            });
+                             
      $scope.creerRando= function(newRando) {
         newRando.idTeamLeader = idMember;
         newRando.date1 =  newRando.date1.getDate().toString().padStart(2, '0') + '-' + (newRando.date1.getMonth() + 1).toString().padStart(2, '0') + '-' +  newRando.date1.getFullYear();
@@ -47,5 +44,3 @@ randoApp.controller('teamleaderCtrl', function ($scope,$http, $cookies) {
 
 });
 
-
-}
