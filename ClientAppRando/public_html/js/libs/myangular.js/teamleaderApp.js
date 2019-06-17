@@ -33,7 +33,18 @@ randoApp.controller('teamleaderCtrl', function ($scope, $http, $cookies, $route)
                     alert("Inscription cloturée");
                     $route.reload();
                 });
-    }
+    };
+
+    $scope.cloturerVotesRando = function (idRando) {
+        $http({
+            method: 'PATCH',
+            url: 'http://localhost:8181/api/randonnee/cloturerVotes/' + idRando})
+                .then(function (response) {
+                    alert("Votes cloturés");
+                    $route.reload();
+                });
+    };
+    
 
     $scope.creerRando = function (newRando) {
         newRando.idTeamLeader = idMember;
