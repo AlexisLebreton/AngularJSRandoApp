@@ -7,10 +7,10 @@
 var randoApp = angular.module('randoApp');
 
 
-randoApp.controller('teamleaderCtrl', function ($scope, $http, $cookies) {
-    
+randoApp.controller('teamleaderCtrl', function ($scope, $http, $cookies, $route) {
+
     var idMember = $cookies.get('coIdM');
-    
+
     $http({
         method: 'GET',
         url: 'http://localhost:8181/api/randonnee/randoVotesACloturer/' + idMember})
@@ -24,22 +24,47 @@ randoApp.controller('teamleaderCtrl', function ($scope, $http, $cookies) {
             .then(function (response) {
                 $scope.listRandoFixeTL = response.data;
             });
-                             
-     $scope.creerRando= function(newRando) {
+
+    $scope.cloturerInscriptionRando = function (idRando) {
+        $http({
+            method: 'PATCH',
+            url: 'http://localhost:8181/api/randonnee/cloturerInscription/' + idRando})
+                .then(function (response) {
+                    alert("Inscription cloturée");
+                    $route.reload();
+                });
+    };
+
+    $scope.cloturerVotesRando = function (idRando) {
+        $http({
+            method: 'PATCH',
+            url: 'http://localhost:8181/api/randonnee/cloturerVotes/' + idRando})
+                .then(function (response) {
+                    alert("Votes cloturés");
+                    $route.reload();
+                });
+    };
+    
+
+    $scope.creerRando = function (newRando) {
         newRando.idTeamLeader = idMember;
-        newRando.date1 =  newRando.date1.getDate().toString().padStart(2, '0') + '-' + (newRando.date1.getMonth() + 1).toString().padStart(2, '0') + '-' +  newRando.date1.getFullYear();
-        newRando.date2 =  newRando.date2.getDate().toString().padStart(2, '0') + '-' + (newRando.date2.getMonth() + 1).toString().padStart(2, '0') + '-' +  newRando.date2.getFullYear();
-        newRando.date3 =  newRando.date3.getDate().toString().padStart(2, '0') + '-' + (newRando.date3.getMonth() + 1).toString().padStart(2, '0') + '-' +  newRando.date3.getFullYear();
-        
+        newRando.date1 = newRando.date1.getDate().toString().padStart(2, '0') + '-' + (newRando.date1.getMonth() + 1).toString().padStart(2, '0') + '-' + newRando.date1.getFullYear();
+        newRando.date2 = newRando.date2.getDate().toString().padStart(2, '0') + '-' + (newRando.date2.getMonth() + 1).toString().padStart(2, '0') + '-' + newRando.date2.getFullYear();
+        newRando.date3 = newRando.date3.getDate().toString().padStart(2, '0') + '-' + (newRando.date3.getMonth() + 1).toString().padStart(2, '0') + '-' + newRando.date3.getFullYear();
+
         var postData = angular.toJson(newRando, true);
-        
+
         var req = {
             method: 'POST',
             url: 'http://localhost:8181/api/randonnee/',
             data: postData
-           };
-        
-        $http(req).then(function(){ alert("ok"); }, function(){ alert("ko"); });
+        };
+
+        $http(req).then(function () {
+            alert("ok");
+        }, function () {
+            alert("ko");
+        });
     };
 
 });
