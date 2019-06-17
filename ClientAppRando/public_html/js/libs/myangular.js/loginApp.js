@@ -8,12 +8,15 @@ randoApp.controller('loginCtrl', function ($scope, $http, $location, $cookies) {
         url: 'http://localhost:8080/api/randoMembre/connexion',
         params: {loginM: connecting.loginM, mdpM: connecting.mdpM}})
             .then(function (response) {
+                if (response.data.idM !== null){
                 $cookies.put('coIdM', response.data.idM);
                 $cookies.put('coIsTL', response.data.isTL);
                 $cookies.put('coIsSecretaire', response.data.isSecretaire);
                 $cookies.put('coIsPresident', response.data.isPresident);
                 //recup les infos du membre
-                $location.path( "/" );
+                $location.path( "/" );}else{
+                alert("co impossible");
+                }
             });
     };
     

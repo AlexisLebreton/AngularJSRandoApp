@@ -12,29 +12,29 @@ randoApp.controller('presidentCtrl', function ($scope, $http) {
                 $scope.totalCotisationRegle = $scope.listInfosMembre.totalCotisationRegle;
                 console.log(response.data);
             });
-
-    /*
+            
     $http({
         method: 'GET',
-        url: 'http://localhost:8080/api/randoMembre/'})
+        url: 'http://localhost:8080/api/randoAsso/reporting'})
             .then(function (response) {
-                $scope.listMembre = response.data;
-                console.log(response.data);
-                $scope.nbMembre = $scope.listMembre.length;
-                $scope.nbMembre = response.data.length;
-                $scope.nbTeamL = 0;
-
-                angular.forEach(response.data, function (value, key) {
-                    angular.forEach(value, function (v1, k1) {//this is nested angular.forEach loop
-                        //console.log(k1+":"+v1);
-
-                        if (k1 == "isTL" && v1) {
-                            $scope.nbTeamL++;
-                        }
-                    });
-                });
+                $scope.listInfosAsso = response.data;
+                $scope.cotisationMin = $scope.listInfosAsso.cotisationMin;
+                $scope.cotisationPrevu = $scope.cotisationMin*$scope.nbMembre;
             });
-            */
+            
+    $http({
+        method: 'GET',
+        url: 'http://localhost:8181/api/randonnee/reporting'})
+            .then(function (response) {
+                $scope.listInfosRando = response.data;
+                $scope.totalCoutRando = $scope.listInfosRando.totalCoutRando;
+                $scope.nbRandoPos = $scope.listInfosRando.nbRandoPos;
+                $scope.encour = $scope.listInfosRando.encour;
+                
+                console.log(response.data);
+            });
+
+   
 
 });
 
