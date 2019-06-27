@@ -33,6 +33,19 @@ randoApp.controller('loginCtrl', function ($scope, $http, $location, $cookies) {
         
     };
     
+    $scope.creerAsso = function (asso) {
+        var postData = angular.toJson(asso, true);
+        
+        var req = {
+            method: 'POST',
+            url: 'http://localhost:8080/api/randoAsso',
+            data: postData
+           };
+        
+        $http(req).then(function(){ alert("ok"); }, function(response){ alert(response.data.message); });
+        
+    };
+    
     
 
 });

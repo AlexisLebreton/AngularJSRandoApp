@@ -70,5 +70,28 @@
     </div>
     
     <hr></hr>
+    
+    <div class="fonctionnalite" id="creerAsso">
+
+        <h1 class="display-4 titrefonctionnalite">Creer asso</h1>
+        
+        <div class="form-group">
+            <label for="asNomAsso">Nom</label>
+            <input type="text" class="form-control" ng-model="asso.nomAsso" id="asNomAsso">
+        </div>
+        <div class="form-group">
+            <label for="asBudgetAsso">Budget de départ</label>
+            <input type="number" class="form-control" ng-model="asso.budgetAsso" id="asBudgetAsso">
+        </div>
+        <div class="form-group">
+            <label for="asCotisationMin">Cotisation minimum</label>
+            <input type="number" class="form-control" ng-model="asso.cotisationMin" id="asCotisationMin">
+        </div>
+        
+        <button class="btn btn-dark" ng-click="creerAsso(asso)">Creer association</button>
+
+    </div>
+    
+    <hr></hr>
 
 </div>
