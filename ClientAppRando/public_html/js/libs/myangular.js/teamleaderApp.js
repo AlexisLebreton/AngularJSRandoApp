@@ -16,6 +16,8 @@ randoApp.controller('teamleaderCtrl', function ($scope, $http, $cookies, $route)
         url: 'http://localhost:8181/api/randonnee/randoVotesACloturer/' + idMember})
             .then(function (response) {
                 $scope.listRandoVoteTL = response.data;
+            }, function (response) {
+                alert(response.data.message);
             });
 
     $http({
@@ -23,6 +25,8 @@ randoApp.controller('teamleaderCtrl', function ($scope, $http, $cookies, $route)
         url: 'http://localhost:8181/api/randonnee/randoInscisACloturer/' + idMember})
             .then(function (response) {
                 $scope.listRandoFixeTL = response.data;
+            }, function (response) {
+                alert(response.data.message);
             });
 
     $scope.cloturerInscriptionRando = function (idRando) {
@@ -32,6 +36,8 @@ randoApp.controller('teamleaderCtrl', function ($scope, $http, $cookies, $route)
                 .then(function (response) {
                     alert("Inscription cloturée");
                     $route.reload();
+                }, function (response) {
+                    alert(response.data.message);
                 });
     };
 
@@ -42,6 +48,8 @@ randoApp.controller('teamleaderCtrl', function ($scope, $http, $cookies, $route)
                 .then(function (response) {
                     alert("Votes cloturés");
                     $route.reload();
+                }, function (response) {
+                    alert(response.data.message);
                 });
     };
     
@@ -62,8 +70,8 @@ randoApp.controller('teamleaderCtrl', function ($scope, $http, $cookies, $route)
 
         $http(req).then(function () {
             alert("ok");
-        }, function () {
-            alert("ko");
+        }, function (response) {
+            alert(response.data.message);
         });
     };
 

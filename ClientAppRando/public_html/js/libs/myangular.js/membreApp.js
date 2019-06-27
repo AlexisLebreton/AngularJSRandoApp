@@ -31,8 +31,8 @@ randoApp.controller('membreCtrl', function ($scope, $cookies, $http, $route) {
 
         $http(req).then(function () {
             alert("ok");
-        }, function () {
-            alert("ko");
+        }, function (response) {
+            alert(response.data.message);
         });
 
     };
@@ -46,6 +46,8 @@ randoApp.controller('membreCtrl', function ($scope, $cookies, $http, $route) {
             params: {idM: idMember, iban: paiement.iban, cotisation: paiement.cotisation}})
                 .then(function (response) {
                     alert("payement de cotisation réussi");
+                }, function (response) {
+                    alert(response.data.message);
                 });
     };
 
@@ -59,6 +61,8 @@ randoApp.controller('membreCtrl', function ($scope, $cookies, $http, $route) {
                 .then(function (response) {
                     alert("vote enregistré");
                     $route.reload();
+                }, function (response) {
+                    alert(response.data.message);
                 });
     };
 
@@ -72,6 +76,8 @@ randoApp.controller('membreCtrl', function ($scope, $cookies, $http, $route) {
                 .then(function (response) {
                     alert("inscription enregistrée");
                     $route.reload();
+                }, function (response) {
+                    alert(response.data.message);
                 });
     };
 
@@ -80,6 +86,8 @@ randoApp.controller('membreCtrl', function ($scope, $cookies, $http, $route) {
         url: 'http://localhost:8181/api/randonnee/randoToVotes/' + idMember})
             .then(function (response) {
                 $scope.listRandoVote = response.data;
+            }, function (response) {
+                alert(response.data.message);
             });
 
     $http({
@@ -87,6 +95,8 @@ randoApp.controller('membreCtrl', function ($scope, $cookies, $http, $route) {
         url: 'http://localhost:8181/api/randonnee/randoInscriNonCloture/' + idMember })
             .then(function (response) {
                 $scope.listRandoInscriOuverte = response.data;
+            }, function (response) {
+                alert(response.data.message);
             });
 
 

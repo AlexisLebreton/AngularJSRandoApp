@@ -11,6 +11,8 @@ randoApp.controller('presidentCtrl', function ($scope, $http) {
                 $scope.nbTL = $scope.listInfosMembre.nbTL;
                 $scope.totalCotisationRegle = $scope.listInfosMembre.totalCotisationRegle;
                 console.log(response.data);
+            }, function (response) {
+                alert(response.data.message);
             });
             
     $http({
@@ -20,6 +22,8 @@ randoApp.controller('presidentCtrl', function ($scope, $http) {
                 $scope.listInfosAsso = response.data;
                 $scope.cotisationMin = $scope.listInfosAsso.cotisationMin;
                 $scope.cotisationPrevu = $scope.cotisationMin*$scope.nbMembre;
+            }, function (response) {
+                alert(response.data.message);
             });
             
     $http({
@@ -32,6 +36,8 @@ randoApp.controller('presidentCtrl', function ($scope, $http) {
                 $scope.encour = $scope.listInfosRando.encour;
                 
                 console.log(response.data);
+            }, function (response) {
+                alert(response.data.message);
             });
 
    

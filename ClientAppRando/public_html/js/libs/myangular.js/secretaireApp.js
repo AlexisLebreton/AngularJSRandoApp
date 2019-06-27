@@ -9,6 +9,8 @@ randoApp.controller('secretaireCtrl', function ($scope, $http) {
             .then(function (response) {
                 $scope.listMembre = response.data;
                 console.log(response.data);
+            }, function (response) {
+                alert(response.data.message);
             });
 
     $scope.majCertifMedical = function (idMembre) {
@@ -18,6 +20,8 @@ randoApp.controller('secretaireCtrl', function ($scope, $http) {
             params: {idM: idMembre}})
                 .then(function (response) {
                     alert("maj certif ok");
+                }, function (response) {
+                    alert(response.data.message);
                 });
     };
     
